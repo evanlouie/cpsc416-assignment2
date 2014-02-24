@@ -33,8 +33,7 @@ FILE * pFile;
 pthread_mutex_t mutex_lock;
 pthread_t sniffer_thread;
 Queue *queue = NULL;
-operation_t myops;
-generator_state_t *state = NULL;
+
 unsigned long TOTAL_OPERATIONS = 0;
 
 void *thread_handler(void *);
@@ -59,6 +58,8 @@ error:
 }
 
 void *thread_handler() {
+    operation_t myops;
+    generator_state_t *state = NULL;
     while (load_generator(&myops, &state)) {
         pthread_mutex_lock(&mutex_lock);
         TOTAL_OPERATIONS++;

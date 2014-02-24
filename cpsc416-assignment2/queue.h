@@ -16,6 +16,7 @@ typedef struct Queue {
     int count;
     ListNode *first;
     ListNode *last;
+    pthread_mutex_t mutex;
 } Queue;
 Queue *Queue_create();
 

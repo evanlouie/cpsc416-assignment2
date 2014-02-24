@@ -16,6 +16,7 @@ Queue *Queue_create()
 }
 
 void Queue_enqueue(Queue *queue, void *value) {
+    pthread_mutex_lock(&(queue->mutex));
     ListNode *node = calloc(1, sizeof(ListNode));
     check_mem(node);
     
@@ -32,15 +33,24 @@ void Queue_enqueue(Queue *queue, void *value) {
     }
     
     queue->count++;
+    pthread_mutex_unlock(&(queue->mutex));
 error:
     return;
 }
 void *Queue_dequeue(Queue *queue) {
+    pthread_mutex_lock(&(queue->mutex));
     ListNode *node = queue->first;
-    return node != NULL ? Queue_remove(queue, node): NULL;
+    if (node != NULL) {
+        return Queue_remove(queue, node);
+    }
+    else {
+        pthread_mutex_unlock(&(queue->mutex));
+        return NULL;
+    }
 }
 
 void *Queue_remove(Queue *queue, ListNode *node) {
+    
     void *result = NULL;
     check(queue->first && queue->last, "Queue is empty.");
     check(node, "Node can't be NULL");
@@ -70,6 +80,7 @@ void *Queue_remove(Queue *queue, ListNode *node) {
     queue->count--;
     result = node->value;
     free(node);
+    pthread_mutex_unlock(&(queue->mutex));
     return result;
 error:
     return result;
