@@ -31,3 +31,6 @@
 # of threads=2 time (seconds)=1 total number of operations=86667
 # of threads=2 time (seconds)=1 total number of operations=84756
 # of threads=2 time (seconds)=1 total number of operations=84355
+# of threads=12 time (seconds)=1 total number of operations=84991
+# of threads=12 time (seconds)=1 total number of operations=85735
+# of threads=12 time (seconds)=1 total number of operations=84714

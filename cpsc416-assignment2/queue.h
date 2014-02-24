@@ -10,7 +10,8 @@
 #define cpsc416_assignment2_queue_h
 
 #include "list.h"
-
+#include <pthread.h>
+pthread_mutex_t mutex_lock;
 typedef struct Queue {
     int count;
     ListNode *first;
