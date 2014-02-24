@@ -70,7 +70,7 @@ void *Queue_remove(Queue *queue, ListNode *node) {
     queue->count--;
     result = node->value;
     free(node);
-    
+    return result;
 error:
     return result;
 }
