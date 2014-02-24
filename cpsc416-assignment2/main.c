@@ -14,6 +14,24 @@
 
 FILE * pFile;
 
+typedef struct queue_operation {
+    int operation;
+    int value;
+} operation_t;
+
+typedef struct generator_state {
+    int state[4];
+} generator_state_t;
+
+int load_generator(operation_t *op, generator_state_t **s) {
+    if (*s == NULL) {
+        *s = (generator_state_t *) malloc(sizeof(generator_state_t));
+        // initialize state
+    }
+    
+    return 1;
+}
+
 int main(int argc, const char * argv[])
 {
 

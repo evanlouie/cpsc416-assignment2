@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "cpsc416-assignment2/main.c"
-            timestampString = "414894470.627566"
+            timestampString = "414898269.729514"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "main()"
             landmarkType = "7">
             <Locations>
