@@ -1,0 +1,10 @@
+# of threads=2 time (seconds)=30 total number of operations=1094802
+# of threads=5 time (seconds)=30 total number of operations=1109391
+# of threads=10 time (seconds)=30 total number of operations=1115445
+# of threads=15 time (seconds)=30 total number of operations=1117992
+# of threads=20 time (seconds)=30 total number of operations=1113118
+# of threads=2 time (seconds)=60 total number of operations=2182863
+# of threads=5 time (seconds)=60 total number of operations=2219911
+# of threads=10 time (seconds)=60 total number of operations=2185146
+# of threads=15 time (seconds)=60 total number of operations=2195746
+# of threads=20 time (seconds)=60 total number of operations=2192077

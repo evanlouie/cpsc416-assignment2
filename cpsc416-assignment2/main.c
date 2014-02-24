@@ -35,7 +35,7 @@ pthread_t sniffer_thread;
 Queue *queue = NULL;
 operation_t myops;
 generator_state_t *state = NULL;
-
+unsigned long TOTAL_OPERATIONS = 0;
 
 void *thread_handler(void *);
 
@@ -61,6 +61,7 @@ error:
 void *thread_handler() {
     while (load_generator(&myops, &state)) {
         pthread_mutex_lock(&mutex_lock);
+        TOTAL_OPERATIONS++;
         if (myops.operation == 1) {
             int *i = malloc(sizeof(int));
             *i = myops.value;
@@ -113,7 +114,7 @@ int main(int argc, const char * argv[])
     printf("runtime: %d\n", RUNTIME);
 
     // Seed random number generator
-    srand ( time(NULL) );
+    srand ( (int)time(NULL) );
     if (pthread_mutex_init(&mutex_lock, NULL) != 0) {
         printf("\nWARNING: mutex init failed\n");
         return 1;
@@ -121,42 +122,21 @@ int main(int argc, const char * argv[])
     
     
     
-    pFile = fopen ("result.txt","w+");
-    if (pFile!=NULL)
-    {
-        fputs ("fopen example EVAN LUIe\nasdfasdfasdf\n",pFile);
-        fclose (pFile);
-    }
+    pFile = fopen ("result.txt","a");
     
     
     
-//    queue = NULL;
+    
     queue = Queue_create();
     assert(queue != NULL);
     
-    char *test1 = "test1 data";
-    char *test2 = "test2 data";
-    char *test3 = "test3 data";
-    operation_t *ot1 = malloc(sizeof(operation_t));
-    ot1->operation = 1;
-    ot1->value = 123;
     
-    Queue_enqueue(queue, test1);
-    Queue_enqueue(queue, test2);
-    Queue_enqueue(queue, test3);
+    int CURRENT_PROCESSES = 0;
     
-    while (queue->first != NULL) {
-        char *value = Queue_dequeue(queue);
-        printf("%s\n", value);
-    }
-    
-    int MAX_THREADS = 5;
-    int THREAD_COUNT = 0;
-    
-    while (THREAD_COUNT <= MAX_THREADS) {
+    while (CURRENT_PROCESSES <= PROCESS_COUNT) {
         pthread_mutex_lock(&mutex_lock);
         pthread_create(&sniffer_thread, NULL, thread_handler, (void *) 1);
-        THREAD_COUNT++;
+        CURRENT_PROCESSES++;
         pthread_mutex_unlock(&mutex_lock);
     }
     
@@ -167,9 +147,21 @@ int main(int argc, const char * argv[])
     now = 0;
     while(now <= RUNTIME){
         now = (clock() - start)/CLOCKS_PER_SEC;
-        printf("Time Elapsed: %lu\n", now);
+//        printf("Time Elapsed: %lu\n", now);
     }
-
+    printf("Total Actions: %lu\n", TOTAL_OPERATIONS);
+    
+    if (pFile!=NULL)
+    {
+        char message[1024];
+        sprintf(message, "# of threads=%d time (seconds)=%d total number of operations=%lu\n", PROCESS_COUNT, RUNTIME, TOTAL_OPERATIONS);
+        fputs (message,pFile);
+        fclose (pFile);
+    }
+    else {
+        perror("Could not create/open/write-to result.txt");
+        return -1;
+    }
     return 0;
 }
 
