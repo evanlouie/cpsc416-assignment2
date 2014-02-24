@@ -12,6 +12,7 @@
 #include <string.h>
 #include <time.h>
 
+FILE * pFile;
 
 int main(int argc, const char * argv[])
 {
@@ -22,11 +23,11 @@ int main(int argc, const char * argv[])
         printf("%d: %s\n", i, argv[i]);
     }
     
-    FILE * pFile;
+    
     pFile = fopen ("result.txt","w+");
     if (pFile!=NULL)
     {
-        fputs ("fopen example asdf\n",pFile);
+        fputs ("fopen example EVAN LUIe\nasdfasdfasdf\n",pFile);
         fclose (pFile);
     }
 
