@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		203823B318BAC13800580D0E /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 203823B218BAC13800580D0E /* main.c */; };
 		203823B518BAC13800580D0E /* cpsc416_assignment2.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 203823B418BAC13800580D0E /* cpsc416_assignment2.1 */; };
+		203823C018BB120C00580D0E /* list.c in Sources */ = {isa = PBXBuildFile; fileRef = 203823BF18BB120C00580D0E /* list.c */; };
+		203823C418BB196800580D0E /* queue.c in Sources */ = {isa = PBXBuildFile; fileRef = 203823C318BB196800580D0E /* queue.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +30,11 @@
 		203823AF18BAC13800580D0E /* cpsc416-assignment2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "cpsc416-assignment2"; sourceTree = BUILT_PRODUCTS_DIR; };
 		203823B218BAC13800580D0E /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		203823B418BAC13800580D0E /* cpsc416_assignment2.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = cpsc416_assignment2.1; sourceTree = "<group>"; };
+		203823BE18BB118E00580D0E /* list.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = list.h; sourceTree = "<group>"; };
+		203823BF18BB120C00580D0E /* list.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = list.c; sourceTree = "<group>"; };
+		203823C118BB134300580D0E /* dbg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dbg.h; sourceTree = "<group>"; };
+		203823C218BB186300580D0E /* queue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = queue.h; sourceTree = "<group>"; };
+		203823C318BB196800580D0E /* queue.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = queue.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +68,11 @@
 			isa = PBXGroup;
 			children = (
 				203823B218BAC13800580D0E /* main.c */,
+				203823BE18BB118E00580D0E /* list.h */,
+				203823C318BB196800580D0E /* queue.c */,
+				203823C218BB186300580D0E /* queue.h */,
+				203823C118BB134300580D0E /* dbg.h */,
+				203823BF18BB120C00580D0E /* list.c */,
 				203823B418BAC13800580D0E /* cpsc416_assignment2.1 */,
 			);
 			path = "cpsc416-assignment2";
@@ -117,7 +129,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				203823C418BB196800580D0E /* queue.c in Sources */,
 				203823B318BAC13800580D0E /* main.c in Sources */,
+				203823C018BB120C00580D0E /* list.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
