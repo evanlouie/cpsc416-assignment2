@@ -36,3 +36,13 @@
 # of threads=12 time (seconds)=1 total number of operations=84714
 # of threads=12 time (seconds)=1 total number of operations=83751
 # of threads=10 time (seconds)=1 total number of operations=85367
+# of threads=3 time (seconds)=1 total number of operations=93935
+# of threads=3 time (seconds)=1 total number of operations=94047
+# of threads=3 time (seconds)=1 total number of operations=93677
+# of threads=3 time (seconds)=1 total number of operations=94717
+# of threads=3 time (seconds)=1 total number of operations=95397
+# of threads=3 time (seconds)=1 total number of operations=93830
+# of threads=3 time (seconds)=1 total number of operations=94306
+# of threads=3 time (seconds)=1 total number of operations=93096
+# of threads=3 time (seconds)=1 total number of operations=92067
+# of threads=3 time (seconds)=1 total number of operations=94342
