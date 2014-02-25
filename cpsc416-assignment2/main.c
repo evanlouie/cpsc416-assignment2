@@ -36,7 +36,7 @@ Queue *queue = NULL;
 
 unsigned long TOTAL_OPERATIONS = 0;
 
-void *thread_handler(void *);
+void *thread_handler();
 
 int load_generator(operation_t *op, generator_state_t **s) {
     if (*s == NULL) {
